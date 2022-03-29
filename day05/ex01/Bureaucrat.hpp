@@ -5,6 +5,8 @@
 #include <string>
 #include <exception>
 
+class Form; // forward declaration to avoid circular dependencies
+
 class Bureaucrat
 {
 private:
@@ -37,6 +39,8 @@ public:
 	int getGrade(void) const;
 	void promote(void);
 	void demote(void);
+
+	void signForm(Form &form);
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &obj);
