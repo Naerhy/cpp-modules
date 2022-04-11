@@ -1,9 +1,11 @@
-#include "DiamondTrap.hpp"
+#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
-	DiamondTrap A("Test");
-	std::cout << A.getName() << " " << A.getAttack() << std::endl;
-	A.whoAmI();
+	FragTrap A("008");
+	FragTrap B(A);
+	FragTrap C("001");
+	C = B;
 	return 0;
 }

@@ -1,15 +1,16 @@
 #include <string>
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 
 int main(void)
 {
-	Phonebook phonebook;
+	PhoneBook phonebook;
 	std::string userCommand;
 
 	std::cout << "Input: ADD | SEARCH | EXIT" << std::endl;
 	while (1)
 	{
-		getline(std::cin, userCommand);
+		// getline(std::cin, userCommand);
+		std::cin >> userCommand;
 		if (userCommand == "ADD")
 		{
 			if (!phonebook.add())

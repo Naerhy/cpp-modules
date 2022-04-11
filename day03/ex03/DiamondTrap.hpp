@@ -14,6 +14,7 @@ public:
 	DiamondTrap(DiamondTrap const &copy);
 	~DiamondTrap(void);
 	DiamondTrap &operator=(DiamondTrap const &copy);
+
 	void whoAmI(void) const;
 };
 

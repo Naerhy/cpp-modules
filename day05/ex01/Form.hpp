@@ -14,8 +14,19 @@ private:
 	bool _isSigned;
 	int const _gradeToSign;
 	int const _gradeToExec;
+	Form &operator=(Form const &copy);
 
-	Form &operator=(Form const &copy); // private because useless with const members
+	class GradeTooHighException : public std::exception
+	{
+	public:
+		const char *what(void) const throw();
+	};
+
+	class GradeTooLowException : public std::exception
+	{
+	public:
+		const char *what(void) const throw();
+	};
 
 public:
 	Form(std::string const &name, int gradeToSign, int gradeToExec);
@@ -28,23 +39,6 @@ public:
 	int getGradeToExec(void) const;
 
 	void beSigned(Bureaucrat const &signer);
-
-	class GradeTooHighException : public std::exception
-	{
-	private:
-		std::string _message;
-	public:
-		GradeTooHighException(std::string const &message);
-		const char *what(void) const throw();
-	};
-	class GradeTooLowException : public std::exception
-	{
-	private:
-		std::string _message;
-	public:
-		GradeTooLowException(std::string const &message);
-		const char *what(void) const throw();
-	};
 };
 
 std::ostream &operator<<(std::ostream &out, Form const &obj);

@@ -30,45 +30,10 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &copy)
 	return *this;
 }
 
-void ClapTrap::setName(std::string const &name)
-{
-	_name = name;
-}
-
-void ClapTrap::setHealth(int const health)
-{
-	_health = health;
-}
-
-void ClapTrap::setEnergy(int const energy)
-{
-	_energy = energy;
-}
-
-void ClapTrap::setAttack(int const attack)
-{
-	_attack = attack;
-}
-
-std::string const &ClapTrap::getName(void) const
-{
-	return _name;
-}
-
-int const ClapTrap::getHealth(void) const
-{
-	return _health;
-}
-
-int const ClapTrap::getEnergy(void) const
-{
-	return _energy;
-}
-
-int const ClapTrap::getAttack(void) const
-{
-	return _attack;
-}
+std::string const &ClapTrap::getName(void) const { return _name; }
+int ClapTrap::getHealth(void) const { return _health; }
+int ClapTrap::getEnergy(void) const { return _energy; }
+int ClapTrap::getAttack(void) const { return _attack; }
 
 void ClapTrap::attack(std::string const &target)
 {
@@ -90,7 +55,8 @@ void ClapTrap::takeDamage(unsigned int amount)
 	if (_health <= 0)
 	{
 		_health = 0;
-		std::cout << "ClapTrap <" << _name << "> is dead..." << std::endl;
+		std::cout << "ClapTrap <" << _name << "> is in critical condition"
+			<< std::endl;
 	}
 }
 
@@ -103,5 +69,6 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap <" << _name << "> is being repared for "
 			<< amount << " health!" << std::endl;
 		_health += amount;
+		_energy--;
 	}
 }

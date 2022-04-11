@@ -7,10 +7,7 @@ Zombie::~Zombie(void)
 	std::cout << _name << " has been killed..." << std::endl;
 }
 
-void Zombie::setName(std::string const &name)
-{
-	_name = name;
-}
+void Zombie::setName(std::string const &name) { _name = name; }
 
 void Zombie::announce(void) const
 {

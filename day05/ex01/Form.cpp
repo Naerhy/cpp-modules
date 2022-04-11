@@ -6,9 +6,9 @@ Form::Form(std::string const &name, int gradeToSign, int gradeToExec)
 	_gradeToExec(gradeToExec)
 {
 	if (gradeToSign > 150 || gradeToExec > 150)
-		throw GradeTooLowException("grade too low");
-	if (gradeToSign < 0 || gradeToExec < 0)
-		throw GradeTooHighException("grade too high");
+		throw GradeTooLowException();
+	if (gradeToSign < 1 || gradeToExec < 1)
+		throw GradeTooHighException();
 }
 
 Form::Form(Form const &copy)
@@ -28,24 +28,18 @@ int Form::getGradeToExec(void) const { return _gradeToExec; }
 void Form::beSigned(Bureaucrat const &signer)
 {
 	if (signer.getGrade() > getGradeToSign())
-		throw GradeTooLowException("grade too low");
+		throw GradeTooLowException();
 	_isSigned = true;
 }
 
-Form::GradeTooHighException::GradeTooHighException(std::string const &message)
-	: _message(message) {}
-
 const char *Form::GradeTooHighException::what(void) const throw()
 {
-	return _message.c_str();
+	return "grade too high";
 }
-
-Form::GradeTooLowException::GradeTooLowException(std::string const &message)
-	: _message(message) {}
 
 const char *Form::GradeTooLowException::what(void) const throw()
 {
-	return _message.c_str();
+	return "grade too low";
 }
 
 std::ostream &operator<<(std::ostream &out, Form const &obj)

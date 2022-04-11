@@ -19,18 +19,21 @@ int main(void)
 	Karen test;
 	int index;
 	
-	index = getIndex("warning");
+	index = getIndex("info");
 	switch (index)
 	{
 		case 0:
 			test.complain("debug");
 			index++;
+			/* fall through */
 		case 1:
 			test.complain("info");
 			index++;
+			/* fall through */
 		case 2:
 			test.complain("warning");
 			index++;
+			/* fall through */
 		case 3:
 			test.complain("error");
 			break;

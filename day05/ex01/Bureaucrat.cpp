@@ -1,36 +1,18 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(std::string const &name, int grade)
 	: _name(name), _grade(grade)
 {
-	std::cout << "[Bureaucrat] Constructor" << std::endl;
 	if (grade > 150)
-		throw GradeTooLowException("grade too low");
-	if (grade < 0)
-		throw GradeTooHighException("grade too high");
+		throw GradeTooLowException();
+	if (grade < 1)
+		throw GradeTooHighException();
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &copy)
-{
-	std::cout << "[Bureaucrat] Copy destructor" << std::endl;
-	*this = copy;
-}
+	: _name(copy._name), _grade(copy._grade) {}
 
-Bureaucrat::~Bureaucrat(void)
-{
-	std::cout << "[Bureaucrat] Destructor" << std::endl;
-}
-
-Bureaucrat &Bureaucrat::operator=(Bureaucrat const &copy)
-{
-	std::cout << "[Bureaucrat] Copy assignement operator" << std::endl;
-	if (this != &copy)
-	{
-		_grade = copy._grade;
-	}
-	return *this;
-}
+Bureaucrat::~Bureaucrat(void) {}
 
 std::string const &Bureaucrat::getName(void) const { return _name; }
 
@@ -39,7 +21,7 @@ int Bureaucrat::getGrade(void) const { return _grade; }
 void Bureaucrat::promote(void)
 {
 	if (_grade == 1)
-		throw GradeTooHighException("grade too high");
+		throw GradeTooHighException();
 	else
 		_grade--;
 }
@@ -47,28 +29,22 @@ void Bureaucrat::promote(void)
 void Bureaucrat::demote(void)
 {
 	if (_grade == 150)
-		throw GradeTooLowException("grade too low");
+		throw GradeTooLowException();
 	else
 		_grade++;
 }
 
-Bureaucrat::GradeTooHighException::GradeTooHighException(std::string const &message)
-	: _message(message) {}
-
 const char *Bureaucrat::GradeTooHighException::what(void) const throw()
 {
-	return _message.c_str();
+	return "grade too high";
 }
-
-Bureaucrat::GradeTooLowException::GradeTooLowException(std::string const &message)
-	: _message(message) {}
 
 const char *Bureaucrat::GradeTooLowException::what(void) const throw()
 {
-	return _message.c_str();
+	return "grade too low";
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(Form &form) const
 {
 	try
 	{

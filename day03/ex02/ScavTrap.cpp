@@ -31,7 +31,7 @@ void ScavTrap::attack(std::string const &target)
 		std::cout << "No health or energy left..." << std::endl;
 	else
 	{
-		std::cout << "[ScavTrap] " << _name << " attacks <" << target
+		std::cout << "ScavTrap <" << _name << "> attacks <" << target
 			<< ">, for " << _attack << " points of damage!" << std::endl;
 		_energy--;
 	}
@@ -39,6 +39,6 @@ void ScavTrap::attack(std::string const &target)
 
 void ScavTrap::guardGate(void) const
 {
-	std::cout << "[ScavTrap] " << _name << " is now in gate keeper mode"
+	std::cout << "ScavTrap <" << _name << "> is now in gate keeper mode"
 		<< std::endl;
 }

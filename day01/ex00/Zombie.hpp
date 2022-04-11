@@ -1,5 +1,5 @@
-#ifndef __ZOMBIE_H__
-#define __ZOMBIE_H__
+#ifndef __ZOMBIE_HPP__
+#define __ZOMBIE_HPP__
 
 #include <iostream>
 #include <string>
@@ -10,7 +10,7 @@ private:
 	std::string _name;
 
 public:
-	Zombie(std::string const &name = "Unknown");
+	Zombie(std::string const &name = "???");
 	~Zombie(void);
 	void announce(void) const;
 };

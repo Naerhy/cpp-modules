@@ -3,13 +3,12 @@
 
 int main(void)
 {
-	ScavTrap A("Miss");
-	A.setHealth(50);
-	ScavTrap B(A);
-	ScavTrap C("Mister");
-	C = A;
+	ClapTrap A("005");
+	ScavTrap B("002");
+	B.attack(A.getName());
+	A.takeDamage(B.getAttack());
 	std::cout << A.getHealth() << std::endl;
-	std::cout << B.getHealth() << std::endl;
-	A.attack("Quentin");
+	A.beRepaired(3);
+	std::cout << A.getHealth() << std::endl;
 	return 0;
 }

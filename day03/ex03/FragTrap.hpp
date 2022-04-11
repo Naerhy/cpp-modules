@@ -10,6 +10,7 @@ public:
 	FragTrap(FragTrap const &copy);
 	~FragTrap(void);
 	FragTrap &operator=(FragTrap const &copy);
+
 	void highFivesGuys(void) const;
 };
 

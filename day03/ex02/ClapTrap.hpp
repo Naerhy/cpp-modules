@@ -18,14 +18,10 @@ public:
 	~ClapTrap(void);
 	ClapTrap &operator=(ClapTrap const &copy);
 
-	void setName(std::string const &name);
-	void setHealth(int const health);
-	void setEnergy(int const energy);
-	void setAttack(int const attack);
 	std::string const &getName(void) const;
-	int const getHealth(void) const;
-	int const getEnergy(void) const;
-	int const getAttack(void) const;
+	int getHealth(void) const;
+	int getEnergy(void) const;
+	int getAttack(void) const;
 
 	void attack(std::string const &target);
 	void takeDamage(unsigned int amount);

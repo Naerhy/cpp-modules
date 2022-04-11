@@ -4,9 +4,14 @@ int main(void)
 {
 	try
 	{
-		Bureaucrat A("Quentin", 150);
+		Bureaucrat A("Quentin", 128);
 		std::cout << A << std::endl;
 		A.demote();
+		std::cout << A << std::endl;
+		Bureaucrat B(A);
+		std::cout << B << std::endl;
+		B.promote();
+		std::cout << B << std::endl;
 	}
 	catch (std::exception &e)
 	{

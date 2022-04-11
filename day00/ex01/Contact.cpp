@@ -1,6 +1,6 @@
 #include "Contact.hpp"
 
-void Contact::setValues(std::string const values[5])
+void Contact::setValues(std::string const (&values)[5])
 {
 	_firstName = values[0];
 	_lastName = values[1];

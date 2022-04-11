@@ -1,6 +1,6 @@
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 
-void Phonebook::pushArray(void)
+void PhoneBook::pushContact(void)
 {
 	int i;
 
@@ -13,18 +13,15 @@ void Phonebook::pushArray(void)
 	_nbContacts--;
 }
 
-Phonebook::Phonebook(void) : _nbContacts(0) {};
+PhoneBook::PhoneBook(void) : _contacts(), _nbContacts(0) {};
 
-int Phonebook::add(void)
+int PhoneBook::add(void)
 {
 	std::string values[5];
 
 	std::cout << "Enter requested values 1 by 1:" << std::endl;
-	getline(std::cin, values[0]);
-	getline(std::cin, values[1]);
-	getline(std::cin, values[2]);
-	getline(std::cin, values[3]);
-	getline(std::cin, values[4]);
+	for (int i = 0; i < 5; i++)
+		getline(std::cin, values[i]);
 	if (values[0].empty() || values[1].empty() || values[2].empty()
 			|| values[3].empty() || values[4].empty())
 	{
@@ -32,13 +29,14 @@ int Phonebook::add(void)
 		return 0;
 	}
 	if (_nbContacts == 8)
-		pushArray();
+		pushContact();
 	_contacts[_nbContacts].setValues(values);
 	_nbContacts++;
+	std::cout << "Contact succesfully added" << std::endl;
 	return 1;
 }
 
-void Phonebook::search(void) const
+void PhoneBook::search(void) const
 {
 	std::string temp;
 	int index;
@@ -90,7 +88,7 @@ void Phonebook::search(void) const
 			<< _contacts[index].getDarkestSecret() << std::endl;
 }
 
-Contact const &Phonebook::getContact(int index) const
+Contact const &PhoneBook::getContact(int index) const
 {
 	return _contacts[index];
 }

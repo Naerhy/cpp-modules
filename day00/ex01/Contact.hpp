@@ -13,7 +13,7 @@ private:
 	std::string _darkestSecret;
 
 public:
-	void setValues(std::string const values[5]);
+	void setValues(std::string const (&values)[5]);
 	std::string const &getFirstName(void) const;
 	std::string const &getLastName(void) const;
 	std::string const &getNickname(void) const;

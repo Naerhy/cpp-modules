@@ -6,15 +6,15 @@
 #include <string>
 #include "Contact.hpp"
 
-class Phonebook
+class PhoneBook
 {
 private:
 	Contact _contacts[8];
 	int _nbContacts;
-	void pushArray(void);
+	void pushContact(void);
 
 public:
-	Phonebook(void);
+	PhoneBook(void);
 	int add(void);
 	void search(void) const;
 	Contact const &getContact(int index) const;

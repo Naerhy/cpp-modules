@@ -1,13 +1,17 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
 int main(void)
 {
-	Bureaucrat A("Quentin", 146);
-	std::cout << A << std::endl;
-	Form B("something...", 50, 100);
-	std::cout << B << std::endl;
-	A.signForm(B);
+	try
+	{
+		Bureaucrat A("Quentin", 129);
+		Form B("random name", 100, 90);
+		A.signForm(B);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;
+	}
 
 	return 0;
 }

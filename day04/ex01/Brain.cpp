@@ -1,6 +1,6 @@
 #include "Brain.hpp"
 
-Brain::Brain(void)
+Brain::Brain(void) : _ideas()
 {
 	std::cout << "[Brain] Constructor" << std::endl;
 }
