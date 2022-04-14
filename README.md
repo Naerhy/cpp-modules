@@ -45,3 +45,4 @@ day07:
 
 day08:
 	ex00: OK
+	ex01: OK
