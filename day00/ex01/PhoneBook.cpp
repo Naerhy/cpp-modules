@@ -15,25 +15,28 @@ void PhoneBook::pushContact(void)
 
 PhoneBook::PhoneBook(void) : _contacts(), _nbContacts(0) {};
 
-int PhoneBook::add(void)
+void PhoneBook::add(void)
 {
 	std::string values[5];
+	std::string contactInfo[5] = {"first name", "last name", "nickname", "phone number",
+		"darkest secret"};
 
-	std::cout << "Enter requested values 1 by 1:" << std::endl;
+	std::cout << "Enter values 1 by 1: " << std::endl;
 	for (int i = 0; i < 5; i++)
-		getline(std::cin, values[i]);
-	if (values[0].empty() || values[1].empty() || values[2].empty()
-			|| values[3].empty() || values[4].empty())
 	{
-		std::cout << "A contact can't have empty values" << std::endl;
-		return 0;
+		std::cout << contactInfo[i] << ": ";
+		getline(std::cin, values[i]);
+		if (values[i].empty())
+		{
+			std::cout << "A contact cannot have empty values!" << std::endl;
+			return;
+		}
 	}
 	if (_nbContacts == 8)
 		pushContact();
-	_contacts[_nbContacts].setValues(values);
+	_contacts[_nbContacts].setValues(values[0], values[1], values[2], values[3], values[4]);
 	_nbContacts++;
-	std::cout << "Contact succesfully added" << std::endl;
-	return 1;
+	std::cout << "Contact succesfully added!" << std::endl;
 }
 
 void PhoneBook::search(void) const
@@ -76,19 +79,24 @@ void PhoneBook::search(void) const
 		std::cout << std::endl;
 		i++;
 	}
-	std::cout << "Enter a valid ID to get full information:" << std::endl;
-	std::cin >> index;
-	if (index < 0 || index >= _nbContacts)
-		std::cout << "Invalid ID" << std::endl;
+	std::cout << "Enter a valid ID to get full information: ";
+	if (!(std::cin >> index) || index < 0 || index >= _nbContacts)
+	{
+		std::cout << "Invalid ID!" << std::endl;
+	}
 	else
-		std::cout << _contacts[index].getFirstName() << std::endl
-			<< _contacts[index].getLastName() << std::endl
-			<< _contacts[index].getNickname() << std::endl
-			<< _contacts[index].getPhoneNumber() << std::endl
-			<< _contacts[index].getDarkestSecret() << std::endl;
+	{
+		std::cout << "first name: " << _contacts[index].getFirstName() << std::endl;
+		std::cout << "last name: " << _contacts[index].getLastName() << std::endl;
+		std::cout << "nickname: " << _contacts[index].getNickname() << std::endl;
+		std::cout << "phone number: " << _contacts[index].getPhoneNumber() << std::endl;
+		std::cout << "darkest secret: " << _contacts[index].getDarkestSecret() << std::endl;
+	}
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-Contact const &PhoneBook::getContact(int index) const
+Contact const& PhoneBook::getContact(int index) const
 {
 	return _contacts[index];
 }
