@@ -1,4 +1,6 @@
-#include "main.hpp"
+#include <iostream>
+#include <string>
+#include <fstream>
 
 int main(int argc, char **argv)
 {
@@ -30,12 +32,12 @@ int main(int argc, char **argv)
 		std::getline(inf, line);
 		text.append(line);
 		if (inf.good())
-			text.push_back(10); // = add newline if not EOF
+			text.push_back(10);
 	}
 	while (1)
 	{
 		occurence = text.find(args[1]);
-		if (occurence == std::string::npos) // = error (-1)
+		if (occurence == std::string::npos)
 			break;
 		text.erase(occurence, args[1].length());
 		text.insert(occurence, args[2]);

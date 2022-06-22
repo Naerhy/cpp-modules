@@ -2,12 +2,12 @@
 
 int main(void)
 {
-	Zombie *heapZombie;
+	Zombie* heapZombie;
 
 	heapZombie = newZombie("Gunther");
 	heapZombie->announce();
 	delete heapZombie;
 
 	randomChump("Max");
-	return (0);
+	return 0;
 }

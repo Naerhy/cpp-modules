@@ -1,10 +1,10 @@
-#ifndef __KAREN_H__
-#define __KAREN_H__
+#ifndef __HARL_HPP__
+#define __HARL_HPP__
 
 #include <iostream>
 #include <string>
 
-class Karen
+class Harl
 {
 private:
 	void debug(void);
@@ -13,7 +13,7 @@ private:
 	void error(void);
 
 public:
-	void complain(std::string const &level);
+	void complain(std::string const& level);
 };
 
 #endif

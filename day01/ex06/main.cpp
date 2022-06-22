@@ -1,41 +1,43 @@
-#include "Karen.hpp"
+#include "Harl.hpp"
 
-int getIndex(std::string const &level)
+int getIndex(std::string const& level)
 {
-	if (level == "debug")
+	if (level == "DEBUG")
 		return (0);
-	else if (level == "info")
+	else if (level == "INFO")
 		return (1);
-	else if (level == "warning")
+	else if (level == "WARNING")
 		return (2);
-	else if (level == "error")
+	else if (level == "ERROR")
 		return (3);
 	else
 		return (4);
 }
 
-int main(void)
+int main(int argc, char** argv)
 {
-	Karen test;
+	Harl harl;
 	int index;
 	
-	index = getIndex("info");
+	if (argc != 2)
+		return 1;
+	index = getIndex(argv[1]);
 	switch (index)
 	{
 		case 0:
-			test.complain("debug");
+			harl.complain("DEBUG");
 			index++;
 			/* fall through */
 		case 1:
-			test.complain("info");
+			harl.complain("INFO");
 			index++;
 			/* fall through */
 		case 2:
-			test.complain("warning");
+			harl.complain("WARNING");
 			index++;
 			/* fall through */
 		case 3:
-			test.complain("error");
+			harl.complain("ERROR");
 			break;
 		default:
 			std::cout << " [ Probably complaining about insignificant "

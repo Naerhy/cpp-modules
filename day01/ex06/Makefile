@@ -1,6 +1,6 @@
-NAME = karen
+NAME = harlFilter
 
-SRC = Karen.cpp \
+SRC = Harl.cpp \
 	  main.cpp
 
 OBJ = ${SRC:.cpp=.o}
