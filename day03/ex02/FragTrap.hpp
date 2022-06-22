@@ -5,13 +5,13 @@
 
 class FragTrap : public ClapTrap
 {
-public:
-	FragTrap(std::string const &name);
-	FragTrap(FragTrap const &copy);
-	~FragTrap(void);
-	FragTrap &operator=(FragTrap const &copy);
+	public:
+		FragTrap(std::string const& name);
+		FragTrap(FragTrap const& copy);
+		~FragTrap(void);
+		FragTrap& operator=(FragTrap const& copy);
 
-	void highFivesGuys(void) const;
+		void highFivesGuys(void) const;
 };
 
 #endif

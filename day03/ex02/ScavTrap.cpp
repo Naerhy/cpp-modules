@@ -1,31 +1,31 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string const &name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string const& name) : ClapTrap(name)
 {
-	std::cout << "[ScavTrap] Constructor" << std::endl;
+	std::cout << "\033[32m[ScavTrap] Constructor\033[0m" << std::endl;
 	_health = 100;
 	_energy = 50;
 	_attack = 20;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &copy) : ClapTrap(copy)
+ScavTrap::ScavTrap(ScavTrap const& copy) : ClapTrap(copy)
 {
-	std::cout << "[ScavTrap] Copy constructor" << std::endl;
+	std::cout << "\033[32m[ScavTrap] Copy constructor\033[0m" << std::endl;
 }
 
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << "[ScavTrap] Destructor" << std::endl;
+	std::cout << "\033[32m[ScavTrap] Destructor\033[0m" << std::endl;
 }
 
-ScavTrap &ScavTrap::operator=(ScavTrap const &copy)
+ScavTrap& ScavTrap::operator=(ScavTrap const& copy)
 {
-	std::cout << "[ScavTrap] Copy assignement operator" << std::endl;
+	std::cout << "\033[32m[ScavTrap] Copy assignement operator\033[0m" << std::endl;
 	ClapTrap::operator=(copy);
 	return *this;
 }
 
-void ScavTrap::attack(std::string const &target)
+void ScavTrap::attack(std::string const& target)
 {
 	if (!_health || !_energy)
 		std::cout << "No health or energy left..." << std::endl;
@@ -39,6 +39,5 @@ void ScavTrap::attack(std::string const &target)
 
 void ScavTrap::guardGate(void) const
 {
-	std::cout << "ScavTrap <" << _name << "> is now in gate keeper mode"
-		<< std::endl;
+	std::cout << "ScavTrap <" << _name << "> is now in gate keeper mode" << std::endl;
 }
