@@ -19,10 +19,57 @@ int main(void)
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 
-	Fixed e(2.0f);
-	std::cout << "1. a = " << a << std::endl;
-	a = a / e;
-	std::cout << "2. a = " << a << std::endl;
+	std::cout << std::endl;
+
+	Fixed e(34.0f);
+	std::cout << "Object Fixed e initialized with 34.0f" << std::endl;
+	std::cout << "int value = " << e.toInt() << " | float value = " << e.toFloat() << std::endl;
+
+	std::cout << std::endl;
+
+	std::cout << "Comparison operators" << std::endl;
+	std::cout << "e == a ? " << (e == a) << std::endl;
+	std::cout << "e != a ? " << (e != a) << std::endl;
+	std::cout << "e < a ? " << (e < a) << std::endl;
+	std::cout << "e > a ? " << (e > a) << std::endl;
+	std::cout << "e <= a ? " << (e <= a) << std::endl;
+	std::cout << "e >= a ? " << (e >= a) << std::endl;
+
+	std::cout << std::endl;
+
+	std::cout << "Arithmetic operators" << std::endl;
+	std::cout << "e = " << e << " | b = " << b << std::endl;
+	std::cout << "e + b = " << (e + b) << std::endl;
+	std::cout << "e - b = " << (e - b) << std::endl;
+	std::cout << "e * b = " << (e * b) << std::endl;
+	std::cout << "e / b = " << (e / b) << std::endl;
+
+	std::cout << std::endl;
+
+	std::cout << "Increment and decrement operators" << std::endl;
+	std::cout << "e = " << e << std::endl;
+	e++;
+	std::cout << "e = " << e << std::endl;
+	++e;
+	std::cout << "e = " << e << std::endl;
+	e--;
+	std::cout << "e = " << e << std::endl;
+	--e;
+	std::cout << "e = " << e << std::endl;
+
+	std::cout << std::endl;
+
+	std::cout << "non-const min/max" << std::endl;
+	std::cout << "min(e, a) = " << Fixed::min(e, a) << std::endl;
+	std::cout << "max(e, a) = " << Fixed::max(e, a) << std::endl;
+
+	std::cout << std::endl;
+
+	std::cout << "const min/max" << std::endl;
+	std::cout << "const min(b, c) = " << Fixed::min(b, c) << std::endl;
+	std::cout << "const min(b, c) = " << Fixed::min(b, c) << std::endl;
+
+	std::cout << std::endl;
 
 	return 0;
 }

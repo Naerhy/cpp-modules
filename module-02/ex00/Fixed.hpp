@@ -14,7 +14,7 @@ class Fixed
 		Fixed(Fixed const &copy);
 		~Fixed(void);
 
-		Fixed &operator=(Fixed const &copy);
+		Fixed& operator=(Fixed const &copy);
 
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
