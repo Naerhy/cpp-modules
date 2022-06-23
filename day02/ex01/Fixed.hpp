@@ -5,24 +5,26 @@
 
 class Fixed
 {
-private:
-	int _fixedNb;
-	static int const _fractionalBits;
+	private:
+		int _fixedNb;
+		static int const _fractionalBits;
 
-public:
-	Fixed(void);
-	Fixed(int const nb);
-	Fixed(float const fnb);
-	Fixed(Fixed const &copy);
-	~Fixed(void);
+	public:
+		Fixed(void);
+		Fixed(int const nb);
+		Fixed(float const nb);
+		Fixed(Fixed const &copy);
+		~Fixed(void);
 
-	Fixed &operator=(Fixed const &copy);
-	std::ostream &operator<<(std::ostream &o, Fixed const &i);
+		Fixed &operator=(Fixed const &copy);
 
-	int getRawBits(void) const;
-	void setRawBits(int const raw);
-	float toFloat(void) const;
-	int toInt(void) const;
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
+
+		float toFloat(void) const;
+		int toInt(void) const;
 };
+
+std::ostream& operator<<(std::ostream& out, Fixed const& fixed);
 
 #endif
