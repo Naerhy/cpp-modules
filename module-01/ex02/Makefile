@@ -1,4 +1,4 @@
-NAME = main
+NAME = hi
 
 SRC = main.cpp
 
