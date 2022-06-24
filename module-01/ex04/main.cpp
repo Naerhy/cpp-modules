@@ -27,17 +27,22 @@ int main(int argc, char **argv)
 		std::cout << "Error: unable to open file" << std::endl;
 		return 1;
 	}
-	while (!inf.eof() && inf.good())
+
+	while (1)
 	{
 		std::getline(inf, line);
-		text.append(line);
 		if (inf.good())
+		{
+			text.append(line);
 			text.push_back(10);
+		}
+		else
+			break;
 	}
-	if (!inf.good() && !inf.eof())
+	inf.close();
+	if (!inf.eof())
 	{
 		std::cout << "Error: cannot read file" << std::endl;
-		inf.close();
 		return 1;
 	}
 	while (1)
@@ -48,7 +53,6 @@ int main(int argc, char **argv)
 		text.erase(occurence, args[1].length());
 		text.insert(occurence, args[2]);
 	}
-	inf.close();
 
 	outf.open((args[0] + ".replace").c_str(), std::ofstream::out | std::ofstream::trunc);
 	if (!outf.is_open())
