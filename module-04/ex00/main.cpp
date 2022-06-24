@@ -6,23 +6,47 @@
 
 int main(void)
 {
-	Animal A;
-	Dog B;
-	Animal *C = new Dog;
-	Animal *D = new Cat;
-	WrongAnimal *E = new WrongCat;
-	std::cout << A.getType() << std::endl;
-	std::cout << B.getType() << std::endl;
-	std::cout << C->getType() << std::endl;
-	std::cout << D->getType() << std::endl;
-	std::cout << E->getType() << std::endl;
-	A.makeSound();
-	B.makeSound();
+	Animal* A = new Animal();
+	Animal* B = new Dog();
+	Animal* C = new Cat();
+
+	std::cout << std::endl;
+
+	std::cout << "Type of A = " << A->getType() << std::endl;
+	std::cout << "Type of B = " << B->getType() << std::endl;
+	std::cout << "Type of C = " << C->getType() << std::endl;
+
+	std::cout << std::endl;
+
+	A->makeSound();
+	B->makeSound();
 	C->makeSound();
-	D->makeSound();
-	E->makeSound();
+
+	std::cout << std::endl;
+
+	delete A;
+	delete B;
 	delete C;
-	delete D;
-	delete E;
-	return 0;
+
+	std::cout << std::endl;
+	std::cout << "====================" << std::endl;
+	std::cout << std::endl;
+
+	WrongAnimal* WA = new WrongAnimal();
+	WrongAnimal* WC = new WrongCat();
+
+	std::cout << std::endl;
+
+	std::cout << "Type of WA = " << WA->getType() << std::endl;
+	std::cout << "Type of WC = " << WC->getType() << std::endl;
+
+	std::cout << std::endl;
+
+	WA->makeSound();
+	WC->makeSound();
+
+	std::cout << std::endl;
+
+	delete WA;
+	delete WC;
 }

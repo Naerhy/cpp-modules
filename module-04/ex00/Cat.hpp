@@ -5,12 +5,12 @@
 
 class Cat : public Animal
 {
-public:
-	Cat(void);
-	Cat(Cat const &copy);
-	virtual ~Cat(void);
-	Cat &operator=(Cat const &copy);
-	virtual void makeSound(void) const;
+	public:
+		Cat(void);
+		Cat(Cat const& copy);
+		virtual ~Cat(void);
+		Cat& operator=(Cat const& copy);
+		virtual void makeSound(void) const;
 };
 
 #endif
