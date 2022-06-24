@@ -27,12 +27,18 @@ int main(int argc, char **argv)
 		std::cout << "Error: unable to open file" << std::endl;
 		return 1;
 	}
-	while (!inf.eof())
+	while (!inf.eof() && inf.good())
 	{
 		std::getline(inf, line);
 		text.append(line);
 		if (inf.good())
 			text.push_back(10);
+	}
+	if (!inf.good() && !inf.eof())
+	{
+		std::cout << "Error: cannot read file" << std::endl;
+		inf.close();
+		return 1;
 	}
 	while (1)
 	{
@@ -48,9 +54,9 @@ int main(int argc, char **argv)
 	if (!outf.is_open())
 	{
 		std::cout << "Error: unable to open file" << std::endl;
-		return (1);
+		return 1;
 	}
 	outf << text;
 	outf.close();
-	return (0);
+	return 0;
 }
