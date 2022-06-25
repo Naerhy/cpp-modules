@@ -2,6 +2,7 @@
 #define __DOG_HPP__
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal
 {

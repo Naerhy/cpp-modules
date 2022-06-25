@@ -16,7 +16,8 @@ WrongCat::~WrongCat(void) { std::cout << "[WrongCat] Destructor" << std::endl; }
 WrongCat& WrongCat::operator=(WrongCat const& copy)
 {
 	std::cout << "[WrongCat] Copy assignement operator" << std::endl;
-	WrongAnimal::operator=(copy);
+	if (this != &copy)
+		WrongAnimal::operator=(copy);
 	return *this;
 }
 

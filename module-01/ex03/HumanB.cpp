@@ -2,10 +2,7 @@
 
 HumanB::HumanB(std::string const& name) : _name(name) {}
 
-void HumanB::setWeapon(Weapon const& weapon)
-{
-	*_weapon = weapon;
-}
+void HumanB::setWeapon(Weapon const& weapon) { *_weapon = weapon; }
 
 void HumanB::attack(void) const
 {

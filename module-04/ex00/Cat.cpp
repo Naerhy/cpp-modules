@@ -13,7 +13,8 @@ Cat::~Cat(void) { std::cout << "[Cat] Destructor" << std::endl; }
 Cat& Cat::operator=(Cat const& copy)
 {
 	std::cout << "[Cat] Copy assignement operator" << std::endl;
-	Animal::operator=(copy);
+	if (this != &copy)
+		Animal::operator=(copy);
 	return *this;
 }
 

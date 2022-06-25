@@ -1,10 +1,10 @@
 NAME = brain
 
 SRC = Animal.cpp \
-	  Brain.cpp
+	  Brain.cpp \
 	  Cat.cpp \
 	  Dog.cpp \
-	  main.cpp \
+	  main.cpp
 
 OBJ = ${SRC:.cpp=.o}
 
