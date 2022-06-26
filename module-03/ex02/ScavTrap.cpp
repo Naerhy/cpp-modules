@@ -21,7 +21,8 @@ ScavTrap::~ScavTrap(void)
 ScavTrap& ScavTrap::operator=(ScavTrap const& copy)
 {
 	std::cout << "\033[32m[ScavTrap] Copy assignement operator\033[0m" << std::endl;
-	ClapTrap::operator=(copy);
+	if (this != &copy)
+		ClapTrap::operator=(copy);
 	return *this;
 }
 

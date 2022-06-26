@@ -31,8 +31,11 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& copy)
 }
 
 std::string const& ClapTrap::getName(void) const { return _name; }
+
 int ClapTrap::getHealth(void) const { return _health; }
+
 int ClapTrap::getEnergy(void) const { return _energy; }
+
 int ClapTrap::getAttack(void) const { return _attack; }
 
 void ClapTrap::attack(std::string const& target)

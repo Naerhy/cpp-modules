@@ -21,7 +21,8 @@ FragTrap::~FragTrap(void)
 FragTrap& FragTrap::operator=(FragTrap const& copy)
 {
 	std::cout << "\033[34m[FragTrap] Copy assignement operator\033[0m" << std::endl;
-	ClapTrap::operator=(copy);
+	if (this != &copy)
+		ClapTrap::operator=(copy);
 	return *this;
 }
 

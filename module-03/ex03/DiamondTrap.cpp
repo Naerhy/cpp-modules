@@ -1,7 +1,7 @@
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(std::string const& name)
-	: ClapTrap(name + "_clap_name"), ScavTrap(""), FragTrap(""), _name(name)
+	: ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name)
 {
 	std::cout << "\033[35m[DiamondTrap] Constructor\033[0m" << std::endl;
 	_health = 100;
@@ -9,7 +9,8 @@ DiamondTrap::DiamondTrap(std::string const& name)
 	_attack = 30;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const& copy) : ClapTrap(copy), ScavTrap(copy), FragTrap(copy)
+DiamondTrap::DiamondTrap(DiamondTrap const& copy)
+	: ClapTrap(copy), ScavTrap(copy), FragTrap(copy), _name(copy._name)
 {
 	std::cout << "\033[35m[DiamondTrap] Copy constructor\033[0m" << std::endl;
 }
@@ -22,7 +23,11 @@ DiamondTrap::~DiamondTrap(void)
 DiamondTrap& DiamondTrap::operator=(DiamondTrap const& copy)
 {
 	std::cout << "\033[35m[DiamondTrap] Copy assignement operator\033[0m" << std::endl;
-	ClapTrap::operator=(copy);
+	if (this != &copy)
+	{
+		ClapTrap::operator=(copy);
+		_name = copy._name;
+	}
 	return *this;
 }
 
