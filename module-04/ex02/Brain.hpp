@@ -6,16 +6,14 @@
 
 class Brain
 {
-private:
-	std::string _ideas[100];
+	private:
+		std::string _ideas[100];
 
-public:
-	Brain(void);
-	Brain(Brain const &copy);
-	virtual ~Brain(void);
-	Brain &operator=(Brain const &copy);
-	void setIdea(int index, std::string const &idea);
-	std::string getIdea(int index) const;
+	public:
+		Brain(void);
+		Brain(Brain const& copy);
+		virtual ~Brain(void);
+		Brain& operator=(Brain const& copy);
 };
 
 #endif
