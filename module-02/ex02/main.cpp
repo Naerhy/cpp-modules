@@ -67,7 +67,7 @@ int main(void)
 
 	std::cout << "const min/max" << std::endl;
 	std::cout << "const min(b, c) = " << Fixed::min(b, c) << std::endl;
-	std::cout << "const min(b, c) = " << Fixed::min(b, c) << std::endl;
+	std::cout << "const min(b, c) = " << Fixed::max(b, c) << std::endl;
 
 	std::cout << std::endl;
 

@@ -3,10 +3,7 @@
 
 int const Fixed::_fractionalBits = 8;
 
-Fixed::Fixed(void) : _fixedNb(0)
-{
-	std::cout << "Default constructor called" << std::endl;
-}
+Fixed::Fixed(void) : _fixedNb(0) { std::cout << "Default constructor called" << std::endl; }
 
 Fixed::Fixed(int const nb) : _fixedNb(nb << _fractionalBits)
 {
@@ -23,10 +20,7 @@ Fixed::Fixed(Fixed const& copy) : _fixedNb(copy.getRawBits())
 	std::cout << "Copy constructor called" << std::endl;
 }
 
-Fixed::~Fixed(void)
-{
-	std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed(void) { std::cout << "Destructor called" << std::endl; }
 
 Fixed& Fixed::operator=(Fixed const& copy)
 {
