@@ -1,22 +1,12 @@
 #include "Ice.hpp"
 
-Ice::Ice(void) : AMateria("ice")
-{
-	std::cout << "[Ice] Constructor" << std::endl;
-}
+Ice::Ice(void) : AMateria("ice") {}
 
-Ice::~Ice(void)
-{
-	std::cout << "[Ice] Destructor" << std::endl;
-}
+Ice::~Ice(void) {}
 
-Ice *Ice::clone(void) const
-{
-	return new Ice;
-}
+Ice* Ice::clone(void) const { return new Ice(); }
 
-void Ice::use(ICharacter &target)
+void Ice::use(ICharacter& target)
 {
-	std::cout << "Ice: * shoots an ice bolt at " << target.getName()
-		<< " *" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

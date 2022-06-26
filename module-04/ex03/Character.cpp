@@ -1,72 +1,65 @@
 #include "Character.hpp"
 
-Character::Character(std::string const &name)
-	: _name(name), _materias(), _nbMaterias(0) {} // initialize array values to null
+Character::Character(std::string const& name)
+	: _name(name), _inventory(new AMateria*[4]), _nbMaterias(0) {}
 
-Character::Character(Character const &copy)
+Character::Character(Character const& copy)
+	: _name(copy._name), _inventory(new AMateria*[4]), _nbMaterias(0)
 {
-	std::cout << "[Character] Copy constructor  " << std::endl;
-	*this = copy;
+	for (int i = 0; i < copy._nbMaterias; i++)
+		_inventory[i] = copy._inventory[i]->clone();
 }
 
 Character::~Character(void)
 {
-	std::cout << "[Character] Destructor" << std::endl;
-	for (int i = 0; i < 4; i++)
-		delete _materias[i];
+	for (int i = 0; i < _nbMaterias; i++)
+		delete _inventory[i];
+	delete[] _inventory;
 }
 
-Character Character::&operator=(Character const &copy)
+Character& Character::operator=(Character const& assign)
 {
-	std::cout << "[Character] Copy assignement operator" << std::endl;
-	if (this != copy)
+	if (this != &assign)
 	{
-		_name = copy._name;
-		for (int i = 0; i < 4; i++)
-		{
-			delete _materias[i];
-			_materias[i] = copy._materias[i];
-		}
-		_nbMaterias = copy._materias[i]// use clone because we disabled copy assignement
+		_name = assign._name;
+		for (int i = 0; i < _nbMaterias; i++)
+			delete _inventory[i];
+		for (int i = 0; i < assign._nbMaterias; i++)
+			_inventory[i] = assign._inventory[i]->clone();
 	}
 	return *this;
 }
 
-std::string Character::getName(void) const
-{
-	return _name;
-}
+std::string const& Character::getName(void) const { return _name; }
 
-void Character::equip(AMateria *m)
+int Character::getNbMaterias(void) const { return _nbMaterias; }
+
+void Character::equip(AMateria* m)
 {
-	if (_nbMaterias == 4)
-		std::cout << "Inventory is full" << std::endl;
-	else
+	if (_nbMaterias < 4)
 	{
-		for (int i = 0; i < 4; i++)
-		{
-			if (!_materias[i])
-				_materias[i] = m;
-		}
+		_inventory[_nbMaterias] = m;
 		_nbMaterias++;
 	}
 }
 
-void Character::unequip(int index) // do not forget to delete unequipped materia
+void Character::unequip(int index)
 {
-	if (index < 0 || index > 3 || !_materias[index])
-		std::cout << "Unable to unequip empty slot" << std::endl;
-	else
+	// delete the materia at x index [?]
+	if (index > 0 && index < _nbMaterias)
 	{
-		_materias[index] = 0;
+		_inventory[index] = 0;
+		while (index + 1 < _nbMaterias)
+		{
+			_inventory[index] = _inventory[index + 1];
+			index++;
+		}
 		_nbMaterias--;
 	}
 }
 
-void Character::use(int index, ICharacter &target)
+void Character::use(int index, ICharacter& target)
 {
-	if (index < 0 || index > 3 || !_materias[index])
-		std::cout << "Invalid materia to use" << std::endl;
-	else
-		_materias[index].use(target);
+	if (index >= 0 && index < _nbMaterias)
+		_inventory[index]->use(target);
 }
