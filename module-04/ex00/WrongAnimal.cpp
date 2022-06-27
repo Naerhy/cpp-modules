@@ -5,10 +5,9 @@ WrongAnimal::WrongAnimal(void) : _type("Wrong???")
 	std::cout << "[WrongAnimal] Constructor" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal const& copy)
+WrongAnimal::WrongAnimal(WrongAnimal const& copy) : _type(copy._type)
 {
 	std::cout << "[WrongAnimal] Copy constructor" << std::endl;
-	_type = copy._type;
 }
 
 WrongAnimal::~WrongAnimal(void) { std::cout << "[WrongAnimal] Destructor" << std::endl; }

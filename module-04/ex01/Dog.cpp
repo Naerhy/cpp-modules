@@ -1,6 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog(void) : _brain(new Brain())
+Dog::Dog(void) : Animal(), _brain(new Brain())
 {
 	std::cout << "[Dog] Constructor" << std::endl;
 	_type = "Dog";

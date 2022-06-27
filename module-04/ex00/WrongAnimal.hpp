@@ -14,6 +14,7 @@ class WrongAnimal
 		WrongAnimal(WrongAnimal const& copy);
 		virtual ~WrongAnimal(void);
 		WrongAnimal& operator=(WrongAnimal const& copy);
+
 		std::string const& getType(void) const;
 		void makeSound(void) const;
 };

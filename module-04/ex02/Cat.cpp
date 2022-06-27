@@ -1,6 +1,6 @@
 #include "Cat.hpp"
 
-Cat::Cat(void) : _brain(new Brain())
+Cat::Cat(void) : Animal(), _brain(new Brain())
 {
 	std::cout << "[Cat] Constructor" << std::endl;
 	_type = "Cat";

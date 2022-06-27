@@ -40,5 +40,8 @@ int main(void)
 
 	std::cout << std::endl;
 
+	// uncomment the line below to prove Animal is abstract
+	// Animal Z;
+
 	return 0;
 }

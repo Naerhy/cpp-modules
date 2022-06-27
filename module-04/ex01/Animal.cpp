@@ -2,10 +2,9 @@
 
 Animal::Animal(void) : _type("???") { std::cout << "[Animal] Constructor" << std::endl; }
 
-Animal::Animal(Animal const& copy)
+Animal::Animal(Animal const& copy) : _type(copy._type)
 {
 	std::cout << "[Animal] Copy constructor" << std::endl;
-	_type = copy._type;
 }
 
 Animal::~Animal(void) { std::cout << "[Animal] Destructor" << std::endl; }
