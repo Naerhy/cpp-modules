@@ -9,7 +9,7 @@ class MateriaSource : public IMateriaSource
 		AMateria** _list;
 		int _listSize;
 
-		int checkDouble(AMateria* m) const;
+		int _checkDouble(AMateria* m) const;
 
 	public:
 		MateriaSource(void);

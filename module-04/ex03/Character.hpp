@@ -10,7 +10,12 @@ class Character : public ICharacter
 		AMateria** _inventory;
 		int _inventorySize;
 
-		int checkDouble(AMateria* m) const;
+		AMateria** _unequipped;
+		int _unequippedSize;
+
+		int _checkDouble(AMateria* m) const;
+		void _storeUnequipped(AMateria* m);
+		void _deleteUnequipped(void);
 
 	public:
 		Character(std::string const& name);

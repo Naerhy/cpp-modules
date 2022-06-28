@@ -26,6 +26,9 @@ int main(void)
 	edouard->use(0, *bob);
 	edouard->use(1, *bob);
 
+	edouard->unequip(3);
+	edouard->use(3, *bob);
+
 	delete bob;
 	delete edouard;
 	delete source;
