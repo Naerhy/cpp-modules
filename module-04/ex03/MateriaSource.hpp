@@ -1,7 +1,6 @@
 #ifndef __MATERIA_SOURCE_HPP__
 #define __MATERIA_SOURCE_HPP__
 
-#include <string>
 #include "IMateriaSource.hpp"
 
 class MateriaSource : public IMateriaSource
@@ -9,6 +8,8 @@ class MateriaSource : public IMateriaSource
 	private:
 		AMateria** _list;
 		int _listSize;
+
+		int checkDouble(AMateria* m) const;
 
 	public:
 		MateriaSource(void);

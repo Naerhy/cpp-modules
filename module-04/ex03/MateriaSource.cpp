@@ -1,5 +1,15 @@
 #include "MateriaSource.hpp"
 
+int MateriaSource::checkDouble(AMateria* m) const
+{
+	for (int i = 0; i < _listSize; i++)
+	{
+		if (_list[i] == m)
+			return 1;
+	}
+	return 0;
+}
+
 MateriaSource::MateriaSource(void) : _list(new AMateria*[4]), _listSize(0) {}
 
 MateriaSource::MateriaSource(MateriaSource const& copy)
@@ -31,7 +41,7 @@ MateriaSource& MateriaSource::operator=(MateriaSource const& assign)
 
 void MateriaSource::learnMateria(AMateria* m)
 {
-	if (_listSize < 4)
+	if (_listSize < 4 && !checkDouble(m))
 	{
 		_list[_listSize] = m;
 		_listSize++;

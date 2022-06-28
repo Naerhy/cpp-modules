@@ -8,7 +8,9 @@ class Character : public ICharacter
 	private:
 		std::string _name;
 		AMateria** _inventory;
-		int _nbMaterias;
+		int _inventorySize;
+
+		int checkDouble(AMateria* m) const;
 
 	public:
 		Character(std::string const& name);
@@ -17,7 +19,7 @@ class Character : public ICharacter
 		Character& operator=(Character const& assign);
 
 		virtual std::string const& getName(void) const;
-		int getNbMaterias(void) const;
+
 		virtual void equip(AMateria* m);
 		virtual void unequip(int index);
 		virtual void use(int index, ICharacter& target);

@@ -1,7 +1,6 @@
 #ifndef __ICE_HPP__
 #define __ICE_HPP__
 
-#include <string>
 #include "AMateria.hpp"
 
 class Ice : public AMateria
