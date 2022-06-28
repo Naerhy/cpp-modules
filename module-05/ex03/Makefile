@@ -2,11 +2,11 @@ NAME = intern
 
 SRC = Bureaucrat.cpp \
 	  Form.cpp \
+	  Intern.cpp \
 	  main.cpp \
 	  PresidentialPardonForm.cpp \
 	  RobotomyRequestForm.cpp \
-	  ShrubberyCreationForm.cpp \
-	  Intern.cpp
+	  ShrubberyCreationForm.cpp
 
 OBJ = ${SRC:.cpp=.o}
 

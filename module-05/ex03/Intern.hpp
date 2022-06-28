@@ -3,25 +3,28 @@
 
 #include <iostream>
 #include <string>
-
-#include "Form.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 class Intern
 {
-private:
-	Intern(Intern const &copy);
-	Intern &operator=(Intern const &copy);
+	private:
+		Form* (Intern::*_fnct[3])(std::string const&);
+		std::string _forms[3];
 
-public:
-	Intern(void);
-	~Intern(void);
+		Intern(Intern const& copy);
+		Intern& operator=(Intern const& assign);
 
-	Form *makeForm(std::string const &formName,
-			std::string const &targetForm);
+		Form* _makeRobotomyRequestForm(std::string const& target);
+		Form* _makePresidentialPardonForm(std::string const& target);
+		Form* _makeShrubberyCreationForm(std::string const& target);
+	
+	public:
+		Intern(void);
+		~Intern(void);
 
-	Form *newPresidentialPardonForm(std::string const &target);
-	Form *newRobotomyRequestForm(std::string const &target);
-	Form *newShrubberyCreationForm(std::string const &target);
+		Form* makeForm(std::string const& formName, std::string const& formTarget);
 };
 
 #endif

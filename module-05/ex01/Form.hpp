@@ -4,43 +4,46 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include "Bureaucrat.hpp"
 
-class Bureaucrat; // forward declaration to avoid circular dependencies
+class Bureaucrat;
+class Form;
 
 class Form
 {
-private:
-	std::string const _name;
-	bool _isSigned;
-	int const _gradeToSign;
-	int const _gradeToExec;
-	Form &operator=(Form const &copy);
+	private:
+		std::string const _name;
+		bool _isSigned;
+		int _gradeToSign;
+		int _gradeToExec;
 
-	class GradeTooHighException : public std::exception
-	{
+		Form& operator=(Form const& assign);
+
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char* what(void) const throw();
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char* what(void) const throw();
+		};
+
 	public:
-		const char *what(void) const throw();
-	};
+		Form(std::string const& name, int gradeToSign, int gradeToExec);
+		Form(Form const& copy);
+		~Form(void);
 
-	class GradeTooLowException : public std::exception
-	{
-	public:
-		const char *what(void) const throw();
-	};
+		std::string const& getName(void) const;
+		bool isSigned(void) const;
+		int getGradeToSign(void) const;
+		int getGradeToExec(void) const;
 
-public:
-	Form(std::string const &name, int gradeToSign, int gradeToExec);
-	Form(Form const &copy);
-	~Form(void);
-
-	std::string const &getName(void) const;
-	bool getIsSigned(void) const;
-	int getGradeToSign(void) const;
-	int getGradeToExec(void) const;
-
-	void beSigned(Bureaucrat const &signer);
+		void beSigned(Bureaucrat const& bc);
 };
 
-std::ostream &operator<<(std::ostream &out, Form const &obj);
+std::ostream& operator<<(std::ostream& out, Bureaucrat const& obj);
 
 #endif
