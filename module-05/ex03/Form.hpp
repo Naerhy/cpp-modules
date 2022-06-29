@@ -53,6 +53,6 @@ class Form
 		virtual void executeDerived(void) const = 0;
 };
 
-std::ostream& operator<<(std::ostream& out, Bureaucrat const& obj);
+std::ostream& operator<<(std::ostream& out, Form const& obj);
 
 #endif

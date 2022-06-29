@@ -11,7 +11,7 @@ int main(void)
 		A.promote();
 		std::cout << A << std::endl;
 
-		std::cout << "Everything is alright!" << std::endl;
+		std::cout << "1 - Everything is alright!" << std::endl;
 	}
 	catch (std::exception& e)
 	{
@@ -23,6 +23,8 @@ int main(void)
 	try
 	{
 		Bureaucrat B("Antoine", 200);
+
+		std::cout << "2 - Everything is alright!" << std::endl;
 	}
 	catch (std::exception& e)
 	{
@@ -35,6 +37,8 @@ int main(void)
 	{
 		Bureaucrat C("Emilie", 1);
 		C.promote();
+
+		std::cout << "3 - Everything is alright!" << std::endl;
 	}
 	catch (std::exception& e)
 	{
