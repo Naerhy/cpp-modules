@@ -12,6 +12,7 @@ std::string const& RobotomyRequestForm::getTarget(void) const { return _target; 
 
 void RobotomyRequestForm::executeDerived(void) const
 {
+	srand(time(NULL));
 	std::cout << "Brrrrrr!!!" << std::endl;
 	if (rand() % 2)
 		std::cout << _target << " has been robotomized" << std::endl;
