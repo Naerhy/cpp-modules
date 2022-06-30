@@ -2,27 +2,26 @@
 #define __WHATEVER_HPP__
 
 template <typename T>
-void swap(T &first, T &second)
+void swap(T& x, T& y)
 {
-	T temp;
+	T temp = x;
 
-	temp = first;
-	first = second;
-	second = temp;
-}
-
-template <typename T>
-T max(T x, T y)
-{
-	if (x > y)
-		return x;
-	return y;
+	x = y;
+	y = temp;
 }
 
 template <typename T>
 T min(T x, T y)
 {
 	if (x < y)
+		return x;
+	return y;
+}
+
+template <typename T>
+T max(T x, T y)
+{
+	if (x > y)
 		return x;
 	return y;
 }

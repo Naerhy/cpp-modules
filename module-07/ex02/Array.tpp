@@ -5,15 +5,15 @@ template <typename T>
 Array<T>::Array(void) : _array(NULL), _size(0) {}
 
 template <typename T>
-Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n) {}
+Array<T>::Array(unsigned int n) : _array(new T[n]()), _size(n) {}
 
 template <typename T>
-Array<T>::Array(Array const &copy) : _array(NULL), _size(copy._size)
+Array<T>::Array(Array const& copy) : _array(NULL), _size(copy._size)
 {
-	if (_size)
+	if (copy._size)
 	{
-		_array = new T[_size];
-		for (int i = 0; i < _size; i++)
+		_array = new T[copy._size];
+		for (int i = 0; i < copy._size; i++)
 			_array[i] = copy._array[i];
 	}
 }
@@ -26,16 +26,20 @@ Array<T>::~Array(void)
 }
 
 template <typename T>
-Array<T> &Array<T>::operator=(Array const &copy)
+Array<T>& Array<T>::operator=(Array const& assign)
 {
-	if (_size)
-		delete[] _array;
-	_size = copy._size;
-	if (_size)
+	if (this != &assign)
 	{
-		_array = new T[_size];
-		for (int i = 0; i < _size; i++)
-			_array[i] = copy._array[i];
+		if (_size)
+			delete[] _array;
+		_array = NULL;
+		if (assign._size)
+		{
+			_array = new T[assign._size];
+			for (int i = 0; i < assign._size; i++)
+				_array[i] = assign._array[i];
+		}
+		_size = assign._size;
 	}
 	return *this;
 }
@@ -44,7 +48,7 @@ template <typename T>
 int Array<T>::size(void) const { return _size; }
 
 template <typename T>
-T &Array<T>::operator[](int index)
+T& Array<T>::operator[](int index)
 {
 	if (index < 0 || index >= _size)
 		throw std::out_of_range("invalid index for this array");

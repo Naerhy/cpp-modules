@@ -5,29 +5,36 @@
 
 int main(void)
 {
-	Array<int> myArray(5);
-	myArray[0] = 2;
-	myArray[1] = 4;
-	myArray[2] = 6;
-	myArray[3] = 8;
-	myArray[4] = 10;
-	for (int i = 0; i < 5; i++)
-		std::cout << myArray[i] << std::endl;
+	Array<int> ints(5);
+	ints[0] = 2;
+	ints[1] = 4;
+	ints[2] = 6;
+	ints[3] = 8;
+	ints[4] = 10;
 
-	Array<std::string> strArray(3);
-	strArray[0] = "this is";
-	strArray[1] = "the end";
-	strArray[2] = "of the world";
+	for (int i = 0; i < 5; i++)
+		std::cout << ints[i] << std::endl;
+
+	std::cout << std::endl;
+
+	Array<std::string> strings(3);
+	strings[0] = "quentin";
+	strings[1] = "aurelien";
+	strings[2] = "aude";
+
 	for (int i = 0; i < 3; i++)
-		std::cout << strArray[i] << std::endl;
+		std::cout << strings[i] << std::endl;
+
+	std::cout << std::endl;
 
 	try
 	{
-		std::cout << strArray[4] << std::endl;
+		std::cout << strings[4] << std::endl;
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
+
 	return 0;
 }

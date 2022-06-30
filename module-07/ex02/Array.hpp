@@ -7,21 +7,22 @@
 template <typename T>
 class Array
 {
-private:
-	T *_array;
-	int _size;
+	private:
+		T* _array;
+		int _size;
 
-public:
-	Array(void);
-	Array(unsigned int n);
-	Array(Array const &copy);
-	~Array(void);
-	Array &operator=(Array const &copy);
+	public:
+		Array(void);
+		Array(unsigned int n);
+		Array(Array const& copy);
+		~Array(void);
+		Array& operator=(Array const& assign);
 
-	int size(void) const;
-	T &operator[](int index);
+		int size(void) const;
+
+		T& operator[](int index);
 };
 
-#include "Array.tpp" // include template implementation
+#include "Array.tpp"
 
 #endif
