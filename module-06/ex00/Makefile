@@ -1,6 +1,8 @@
 NAME = convert
 
-SRC = main.cpp
+SRC = istype.cpp \
+	  main.cpp \
+	  print.cpp
 
 OBJ = ${SRC:.cpp=.o}
 
