@@ -13,7 +13,7 @@ int countOccurrences(std::string const& str, char c)
 
 bool isChar(std::string const& str)
 {
-	if (str.length() == 1 && isprint(str[0]))
+	if (str.length() == 1 && isprint(str[0]) && !isdigit(str[0]))
 		return true;
 	return false;
 }
