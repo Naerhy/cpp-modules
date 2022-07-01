@@ -1,3 +1,4 @@
+#include <iostream>
 #include "MutantStack.hpp"
 
 int main(void)
@@ -23,11 +24,15 @@ int main(void)
 
 	++it;
 	--it;
+
+	std::cout << std::endl;
+	
 	while (it != ite)
 	{
 		std::cout << *it << std::endl;
 		++it;
 	}
 	std::stack<int> s(mstack);
+
 	return 0;
 }
